@@ -1,11 +1,16 @@
 function reset(){
-    var txtEmail = document.getElementById("txtEmail").value;
+    var txtEntrada = document.getElementById("txtEntrada").value;
+    var query_text = procuraString(txtEntrada);
 
-    //console.log("Valores digitados = "+txtEmail);
-
-    // json que vai no corpo da mensagem
-    var msgBody = {
-        email: txtEmail
+    if (query_text < 0){
+        var msgBody = {
+            racf: txtEntrada
+        }
+    }
+    else {
+        var msgBody = {
+            email: txtEntrada
+        }   
     }
 
     var cabecalho = {
@@ -15,8 +20,7 @@ function reset(){
             'Content-type':'application/json'
         }
     }
-    console.log(msgBody);
-    console.log(cabecalho);
+
     fetch("http://localhost:8080/reset", cabecalho)
         .then(resposta=>tratarResultado(resposta));
 }
@@ -30,5 +34,20 @@ function tratarResultado(resp){
         //alert("Usuario NAO FOI ENCONTRADO EM NOSSA BASE");
         console.log(resposta);
         document.getElementById("resposta").innerHTML = "<h6>Usuario nao encontrado na base</h6>";
+    }
+}
+
+function procuraString(resp) {  
+    var params = resp;
+    var indice = params.indexOf("@");
+    return indice; 
+}
+
+function verificaUsuario(){
+    // existe alguma info de "userDash" no armazenamento local?
+    var userLogado = localStorage.getItem("userDash");
+    if (userLogado){
+        // se tiver, redireciona pra o HOME  (ou seja, está logado)
+        window.location="home.html";
     }
 }

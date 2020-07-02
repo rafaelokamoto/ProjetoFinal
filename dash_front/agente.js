@@ -1,3 +1,4 @@
+var ag;
 var templateAg =  `
                 <div class="row spacer">
                     <div class="col-md-2">
@@ -47,12 +48,12 @@ function carregaAgente(){
     var variavel = queryString();
     fetch("http://localhost:8080/agentesfinanceiros/"+variavel+"/dashboard")
         .then(res => res.json())
-        .then(res => preencheAgente(res));
+        .then(res => preencheAgente(res))
+        .then(res => drawChart());
 }
 
 function preencheAgente(resJson){
-    console.log(resJson);
-    var ag = resJson;
+    ag = resJson;
     var novaLinha = templateAg.replace("**PARCEIRO**",ag.nome)
                                 .replace("**VOLUME**",ag.volume)
                                 .replace("**OK**",ag.statusOk)
@@ -92,4 +93,47 @@ function verificaUsuario(){
 function logout(){
     var userLogado = localStorage.removeItem("userDash");
     window.location="index.html"
+}
+
+function logout(){
+    var userLogado = localStorage.removeItem("userDash");
+    window.location="index.html"
+}
+
+
+//gerador do grafico
+function drawChart(){
+    CarregaGrafico();
+}
+
+function CarregaGrafico() {
+    var resp = ag;
+    var a=resp.nome;
+    var x=resp.statusOk;
+    var y=resp.statusFalha;
+    var z=resp.statusFraude;
+    data = google.visualization.arrayToDataTable([
+    ['Agente Financeiro', 'Transacoes'],
+    ['OK', x],
+    ['Falha', y],
+    ['Fraude', z]
+    ]);
+
+    var options = {
+        'title':'Agente Financeiro - '+a, 
+        'width':550,
+        'height':400,
+        legend: 'none',
+        slices: {
+            0: { color: '#28a745' },
+            1: { color: '#ffc107' },
+            2: { color: '#dc3545'}
+        }
+    };
+
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+
+
 }

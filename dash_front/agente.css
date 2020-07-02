@@ -14,18 +14,14 @@
 }
 
 #botao {
-    font-size: 18px;
+    font-weight: bold;
     padding: 10px 25px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
+  }
 
 .comborda{
-    border: 1px solid black;
-    border-radius: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px
+    border: 2px solid black;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 .spacer {
@@ -39,6 +35,14 @@
     border: 2px solid black;
 }
 
+.botaologout{
+    margin-top: 5px;
+    padding-right: 0px;
+    margin-bottom: 5px
+}
+
+
 .rowheader{
+    margin-top: 10px;
     font-weight: bold;
 }

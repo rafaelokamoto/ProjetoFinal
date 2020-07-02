@@ -1,14 +1,23 @@
 function enviar(){
-    var txtEmail = document.getElementById("txtEmail").value;
+    var txtEntrada = document.getElementById("txtEntrada").value;
     var txtSenha = document.getElementById("txtSenha").value;
+    var test_value = consultaString(txtEntrada);
 
-    console.log("Valores digitados = "+txtEmail+" / "+ txtSenha);
+    if (test_value < 0){
+        var msgBody = {
+            racf: txtEntrada,
+            senha: txtSenha
+        }
+    }
+    else {
+        var msgBody = {
+            email: txtEntrada,
+            senha: txtSenha 
+        }   
+    }
 
     // json que vai no corpo da mensagem
-    var msgBody = {
-        email: txtEmail,
-        senha: txtSenha
-    }
+
 
     var cabecalho = {
         method : 'POST',
@@ -43,4 +52,10 @@ function efetivarLogin(res){
     // redirecionar para a página HOME.HTML
     localStorage.setItem("userDash",JSON.stringify(res));
     window.location="home.html";
+}
+
+function consultaString(resp) {  
+    var params = resp;
+    var indice = params.indexOf("@");
+    return indice; 
 }

@@ -1,3 +1,4 @@
+var ag;
 var templateBarra = `<img src="**FOTO**" width="80px"> 
                        **NOME** (**RACF**)`;
 
@@ -23,6 +24,7 @@ function carregaTopTen(){
 }
 
 function preencheTopTen(resJson){
+    ag = resJson;
     console.log(resJson);
     var contStr =templateTt.replace("**NOME**","Parceiro")
                            .replace("**VOLUME**","Volume Transacional")
@@ -72,4 +74,51 @@ function verificaUsuario(){
 function logout(){
     var userLogado = localStorage.removeItem("userDash");
     window.location="index.html"
+}
+
+function drawChart(){
+    CarregaGrafico2();
+}
+
+function CarregaGrafico2() {
+    a=ag[0].nome;
+    a1=ag[0].volume;
+    b=ag[1].nome;
+    b1=ag[1].volume;
+    c=ag[2].nome;
+    c1=ag[2].volume;
+    d=ag[3].nome;
+    d1=ag[3].volume;
+    e=ag[4].nome;
+    e1=ag[4].volume;
+    f=ag[5].nome;
+    f1=ag[5].volume;
+    g=ag[6].nome;
+    g1=ag[6].volume;
+    h=ag[7].nome;
+    h1=ag[7].volume;
+    i=ag[8].nome;
+    i1=ag[8].volume;
+    j=ag[9].nome;
+    j1=ag[9].volume;
+    var data = google.visualization.arrayToDataTable([
+    ['Parceiro', 'Volume de Transações'],
+    [a, a1],
+    [b, b1],
+    [c, c1],
+    [d, d1],
+    [e, e1],
+    [f, f1],
+    [g, g1],
+    [h, h1],
+    [i, i1],
+    [j, j1]
+    ]);
+    //var data = google.visualization.arrayToDataTable(['Parceiro', 'Volume de Transações'],[A]);
+    // Optional; add a title and set the width and height of the chart
+    var options = {'title':'TOP 10', 'width':1000, 'height':700};
+
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('toTenChart'));
+    chart.draw(data, options);
 }
