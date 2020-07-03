@@ -26,13 +26,13 @@ public class AgenteFinanceiroController {
 	@Autowired
 	private TransacaoDAO dao2;
 	
-	@GetMapping("/agentefinanceiro")
+	@GetMapping("/agentesfinanceiros")
 	public ArrayList<AgenteFinanceiro> recuperarTopTen(){
 		ArrayList<AgenteFinanceiro> lista ;
 		lista = (ArrayList<AgenteFinanceiro>)dao.findAllByOrderByVolumeDesc();
 		return lista;
 	}
-	
+	/*
 	@GetMapping("/agentefinanceiro/{id}")
 	public ResponseEntity<AgenteFinanceiro> recuperarPeloId(@PathVariable int id){
 		AgenteFinanceiro a = dao.findById(id).orElse(null);
@@ -42,7 +42,7 @@ public class AgenteFinanceiroController {
 		else {
 			return ResponseEntity.notFound().build();
 		}
-	}
+	}*/
 	
 	@GetMapping("/agentesfinanceiros/{id}/dashboard")
 	public ResponseEntity<AgenteFinanceiroDash> recuperaDashBoardPeloId(@PathVariable int id){
