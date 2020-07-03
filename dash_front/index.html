@@ -1,37 +1,58 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Sistema de Cartões</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
         <script type="text/javascript" src="index.js"></script>
 
     </head>
     <body>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="text-left">DashCard System</h3>
+        <div id="login">
+            <h3 class="text-center text-white pt-5">SISTEMA DE CARTÕES</h3>
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <img id="profile-img" class="rounded-circle profile-img-card" src="https://media1.giphy.com/media/fQVThkiQ5GW0YaCrVF/giphy.gif" />
+                    <div id="login-column" class="col-md-6">
+                        
+                        <div id="login-box" class="col-md-12">
+                           
+                            <form id="login-form" class="form" onsubmit="enviar(event)">
+                                
+                                <h3 class="text-center text-info">Login</h3>
+                    
+                                <div class="form-group">
+                                    <label for="username" class="text-info">Usuário:</label><br>
+                                    <input type="text" class="form-control" id="txtEntrada" aria-describedby="emailHelp" placeholder="Insira aqui o seu e-mail ou RACF" required>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-info">Senha:</label><br>
+                                    <input type="password" class="form-control" id="txtSenha" placeholder="Insira aqui a sua senha" required>
+                                    
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="botao" >SIGN IN</button>
+                                <small id="emailHelp" class="form-text text-muted"><a href="forgotpassword.html">Forgot Password?</a></small>
+                            <div class="row">
+                                <div class="col-md-12" id="resposta">
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="txtEntrada">User Name:</label>
-                <input type="text" class="form-control" id="txtEntrada">
-            </div>
-            <div class="form-group">
-                <label for="txtSenha">Password:</label>
-                <input type="password" class="form-control" id="txtSenha">
-            </div>
-
-                <button type="button" class="btn btn-primary" id="botao" onclick="enviar()">SIGN IN</button>
-                <small id="emailHelp" class="form-text text-muted"><a href="forgotpassword.html">Forgot Password?</a></small>
-            <div class="row">
-                <div class="col-md-12" id="resposta">
-                </div>
-            </div> 
         </div>
+
+        
+        
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <div id="footer">
+            <p>@2020 - SC Coders</p>
+        </div>
     </body>
 </html>

@@ -1,24 +1,20 @@
 var ag;
 var templateBarra = `<img src="**FOTO**" width="80px"> 
-                       **NOME** (**RACF**)`;
+                       <b>**NOME**</b> (RACF: **RACF**)`;
 
 var templateTt = `<div class="container">
                     <div class="row rowdtp">
-                        <div class="col-md-1">
-                        </div>
-                        <div class="col-md-4 comborda">
+                        <div class="col-md-7 comborda">
                             **NOME** 
                         </div>
-                        <div class="col-md-4 comborda">
+                        <div class="col-md-5 comborda">
                             **VOLUME** <br>
-                        </div>
-                        <div class="col-md-3">
                         </div>
                     </div>    
                 </div>`;
 
 function carregaTopTen(){
-    fetch("http://localhost:8080/agentefinanceiro")
+    fetch("http://localhost:8080/agentesfinanceiros")
         .then(res => res.json())
         .then(res => preencheTopTen(res));
 }
@@ -76,11 +72,7 @@ function logout(){
     window.location="index.html"
 }
 
-function drawChart(){
-    CarregaGrafico2();
-}
-
-function CarregaGrafico2() {
+function drawChart() {
     a=ag[0].nome;
     a1=ag[0].volume;
     b=ag[1].nome;
@@ -116,7 +108,7 @@ function CarregaGrafico2() {
     ]);
     //var data = google.visualization.arrayToDataTable(['Parceiro', 'Volume de Transações'],[A]);
     // Optional; add a title and set the width and height of the chart
-    var options = {'title':'TOP 10', 'width':1000, 'height':700};
+    var options = {'width':430, 'height':300};
 
     // Display the chart inside the <div> element with id="piechart"
     var chart = new google.visualization.PieChart(document.getElementById('toTenChart'));

@@ -1,48 +1,33 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home do Sistema de Cartões</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="home.css">
         <script type="text/javascript" src="home.js"></script>
         <script src="https://www.gstatic.com/charts/loader.js"></script>
-        <script>
-            google.charts.load('current', {packages: ['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-        </script>
     </head>
     <body onload="verificaUsuario()">
-
-        <div class="container">
-            <div class="row comborda">
-                <div class="col-md-10">
-                    <h3 class="text rowheader">DashCard System</h3>
+        <div class="container bordatela">
+            <div class="row">
+                <div class="col-md-2 bordalarga">
                 </div>
-                <div class="col-md-2 botaologout text-right">
-                    <button class="btn btn-primary justify-content-center align-items-center" type="button" id="botao" onclick="logout()">
-                        <h8 class="text-center">
-                            Logout
-                        </h8>
-                    </button>
+                <div class="col-md-8 bordalarga">
+                    <h3 class="text-center">SISTEMA DE CARTÕES</h3>
+                </div>
+                <div class="col-md-2 bordalarga">
+                    <button class="btn btn-primary" onclick="logout()">Logout</button>
                 </div>
             </div>
-        </div>
-
-        <div class="container">
             <div class="row">
                 <div class="col-md-12" id="barraUser">
                 </div>
-             </div>   
-        </div>
-        
-        <div class="container">
-            <div class="row spacer">
-                <div class="col-md-5 text-left rowdtp">
-                    Parceiro
-                </div>
-            <div class="col-md-6 text-left">
-
-                <div class="btn-group">
-                    <button type="button" class="btn btn-outline-primary" id=botao disabled>Parceiros</button>
-                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </div>
+            <div class = "row">
+                <div class="btn-group selecao">
+                    <button type="button" class="btn btn-outline-dark" id=botao disabled>Parceiros</button>
+                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -59,30 +44,28 @@
                     </div>
                   </div>
             </div>
-            <div class="col-md-1">
-
-            </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row spacer" >
-                <div class="col-md-1">
+            <div class="container">
+                <div class="row spacer" >
+                    <div class="col-md-12 rowdtp" style="margin-bottom: 20px; text-align: center;">
+                        <b>Top 10 Parceiros</b>
+                    </div>
                 </div>
-                <div class="col-md-9 rowdtp">
-                    Top 10 Parceiros
-                </div>
+            </div>       
+            <div class="container">  
+                <div class="row">
+                    <div class="col-md-6" id="conteudo">
+                        <script>document.onload = carregaTopTen()</script>
+                    </div> 
+                    <div class="col-md-6" id="toTenChart">
+                        <script>
+                            google.charts.load('current', {packages: ['corechart']});
+                            google.charts.setOnLoadCallback(drawChart);
+                            drawChart();
+                        </script>
+                    </div>
+                </div>   
             </div>
-        </div>       
-        <div class="container">  
-            <div class="row">
-                <div class="col-md-12" id="conteudo">
-                    <script>document.onload = carregaTopTen()</script>
-                </div> 
-            </div>   
-        </div>
-
-        <div id="toTenChart">
-            <script>document.onload = drawChart()</script>
+        
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

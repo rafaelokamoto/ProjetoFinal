@@ -1,56 +1,29 @@
-.comborda{
-    border: 2px solid black;
-    padding-top: 0px;
-    padding-bottom: 0px
+body {
+    background-color: #ec7000;
 }
+
 
 .bordalarga{
     margin-top: 5px;
-    border: 2px solid black;
+    border-bottom: 1px solid #ec7000;
 }
 
-.matriz{
-    border: 1px solid black;
-    border-radius: 10px;
-}
-.row{
-    display: flex;
-    align-items: center; 
-}
-
-#barraUser{
-    font-weight: bold;
-    color: #121211 !important;
-    font-size: 16px;
-    padding: 10px 25px;
-    background: white;
-}
-
-#botao {
-    font-weight: bold;
-    padding: 10px 25px;
-  }
-
-.botaologout{
+.bordatela{
+    background-color: white;
     margin-top: 5px;
-    padding-right: 0px;
-    margin-bottom: 5px
-}
-.rowuser{
-    margin-bottom: 30px;
+    border-radius: 1.5rem;
 }
 
-.spacer {
-    padding-top: 30px;
-    padding-bottom: 40px
+.selecao {
+    margin-left: 45%;
+    margin-bottom: 40px;
 }
 
-.rowdtp {
-    font-size: 14px;
-    font-weight: bold;
+.grafico{
+    padding-left: 0px;
 }
 
-.rowheader{
-    margin-top: 5px;
-    font-weight: bold;
+#barrauser{
+    border-bottom: 1px solid #ec7000;
+    margin-bottom: 10px;
 }

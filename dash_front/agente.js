@@ -12,8 +12,8 @@ var templateAg =  `
                 </div>
 
                 <div class="row spacer">
-                    <div class="col-md-2">
-                    <button class="btn btn-success h-100 d-flex justify-content-center align-items-left" type="button" disabled id=botao>
+                    <div class="col-md-2" style="width: 100%;">
+                    <button class="btn btn-success h-100" id="botao" type="button" disabled>
                         Sucesso
                     </button>
                     </div> 
@@ -23,8 +23,8 @@ var templateAg =  `
                 </div>
 
                 <div class="row spacer">
-                    <div class="col-md-2">
-                    <button class="btn btn-warning h-100 d-flex justify-content-center align-items-left" type="button" disabled id=botao>
+                    <div class="col-md-2" style="width: 100%;">
+                    <button class="btn btn-warning h-100" id="botaofalha" type="button" disabled>
                         Falhas
                     </button> 
                     </div>
@@ -34,7 +34,7 @@ var templateAg =  `
                 </div>
 
                 <div class="row spacer">
-                    <div class="col-md-2">
+                    <div class="col-md-2" style="width: 100%;">
                     <button class="btn btn-danger h-100 d-flex justify-content-center align-items-left" type="button" disabled id=botao>
                         Fraudes
                     </button> 
@@ -95,12 +95,6 @@ function logout(){
     window.location="index.html"
 }
 
-function logout(){
-    var userLogado = localStorage.removeItem("userDash");
-    window.location="index.html"
-}
-
-
 //gerador do grafico
 function drawChart(){
     CarregaGrafico();
@@ -121,8 +115,8 @@ function CarregaGrafico() {
 
     var options = {
         'title':'Agente Financeiro - '+a, 
-        'width':550,
-        'height':400,
+        'width':350,
+        'height':250,
         legend: 'none',
         slices: {
             0: { color: '#28a745' },
@@ -134,6 +128,8 @@ function CarregaGrafico() {
     // Display the chart inside the <div> element with id="piechart"
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
-
-
 }
+
+function goBack() {
+    window.history.back();
+  }

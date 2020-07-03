@@ -1,4 +1,7 @@
-function enviar(){
+function enviar(event){
+
+    event.preventDefault();
+
     var txtEntrada = document.getElementById("txtEntrada").value;
     var txtSenha = document.getElementById("txtSenha").value;
     var test_value = consultaString(txtEntrada);
@@ -16,9 +19,6 @@ function enviar(){
         }   
     }
 
-    // json que vai no corpo da mensagem
-
-
     var cabecalho = {
         method : 'POST',
         body   : JSON.stringify(msgBody),
@@ -27,7 +27,7 @@ function enviar(){
         }
 
     }
-    fetch("http://localhost:8080/login", cabecalho)
+    fetch("http://localhost:8080/login", cabecalho) 
         .then(resposta=>tratarResultado(resposta));
 }
 
@@ -39,18 +39,18 @@ function tratarResultado(resp){
     }
     else if (resp.status == 404){  // not found
         //alert("Usuario NAO FOI ENCONTRADO EM NOSSA BASE");
-        document.getElementById("resposta").innerHTML = "<h6>Usuario nao encontrado na base</h6>";
+        document.getElementById("resposta").innerHTML = "Usuário/senha inválida";
     }
     else if (resp.status == 403){  // forbidden
        // alert("Senha INVALIDA");
-       document.getElementById("resposta").innerHTML =  "<h6>Senha Invalida</h6>";
+       document.getElementById("resposta").innerHTML = "Usuário/senha inválida";
     }
 }
 
 function efetivarLogin(res){
     // qual a idéia? gravar no LocalStorage o objeto que eu recebi
-    // redirecionar para a página HOME.HTML
     localStorage.setItem("userDash",JSON.stringify(res));
+    // redirecionar para a página HOME.HTML
     window.location="home.html";
 }
 

@@ -16,7 +16,15 @@
 #botao {
     font-weight: bold;
     padding: 10px 25px;
+    color: black;
   }
+
+#botaofalha {
+    font-weight: bold;
+    padding: 10px 33px;
+    color: black;
+  }
+
 
 .comborda{
     border: 2px solid black;
@@ -30,10 +38,6 @@
     padding-top: 25px;
 }
 
-.bordalarga{
-    margin-top: 5px;
-    border: 2px solid black;
-}
 
 .botaologout{
     margin-top: 5px;
@@ -45,4 +49,31 @@
 .rowheader{
     margin-top: 10px;
     font-weight: bold;
+}
+
+body {
+    background-color: #ec7000;
+}
+
+
+.bordalarga{
+    margin-top: 5px;
+    border-bottom: 1px solid #ec7000;
+}
+
+.bordatela{
+    background-color: white;
+    margin-top: 5px;
+    border-radius: 1.5rem;
+    margin-bottom: 50px;
+}
+
+.selecao {
+    margin-left: 45%;
+    margin-bottom: 40px;
+}
+
+#grafico{
+    padding-top: 10px;
+    padding-left: 0px;
 }

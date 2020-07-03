@@ -1,9 +1,36 @@
- #resposta{
-    font-size: xx-small;
-    color: red;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ec7000;
+  height: 100vh;
 }
+#login .container #login-row #login-column #login-box {
+  margin-top: 30px;
+  max-width: 500px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  border-radius: 1.5rem;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 10px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+ #resposta{
+    font-size: small;
+    font-weight: bold;
+    color: #ec7000;
+  }
 
 #botao {
     font-weight: bold;
     padding: 10px 25px;
+    
   }
+
+#footer {
+  margin-left: 50%;
+}

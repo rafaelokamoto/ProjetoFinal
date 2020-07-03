@@ -1,7 +1,8 @@
 function reset(){
+
+    event.preventDefault();
     var txtEntrada = document.getElementById("txtEntrada").value;
     var query_text = procuraString(txtEntrada);
-
     if (query_text < 0){
         var msgBody = {
             racf: txtEntrada
@@ -26,14 +27,13 @@ function reset(){
 }
 function tratarResultado(resp){
     if (resp.status == 200){ // ok, usuario e senha existem
-       //alert("Usuario IDENTIFICADO");
-       document.getElementById("resposta").innerHTML = "";
-       window.location="novasenha.html";
+        alert("Link para alteração de senha enviado para o e-mail cadastrado");
+        //document.getElementById("resposta").innerHTML = "";
+       //window.location="novasenha.html";
     }
     else if (resp.status == 404){  // not found
-        //alert("Usuario NAO FOI ENCONTRADO EM NOSSA BASE");
-        console.log(resposta);
-        document.getElementById("resposta").innerHTML = "<h6>Usuario nao encontrado na base</h6>";
+        alert("Usuario não identificado");
+        //document.getElementById("resposta").innerHTML = "Usuario não identificado";
     }
 }
 
