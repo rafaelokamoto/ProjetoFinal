@@ -1,0 +1,48 @@
+#barraUser{
+    font-weight: bold;
+    color: #121211 !important;
+    font-size: 14px;
+    text-shadow: 1px 1px 0px #A7BBDE;
+    box-shadow: 1px 1px 1px #CCE1F9;
+    padding: 10px 25px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px groove #498EA3;
+    background: white;
+       
+}
+
+#botao {
+    font-weight: bold;
+    padding: 10px 25px;
+  }
+
+.comborda{
+    border: 2px solid black;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+.spacer {
+    font-size: 22px;
+    font-weight: bolder;
+    padding-top: 25px;
+}
+
+.bordalarga{
+    margin-top: 5px;
+    border: 2px solid black;
+}
+
+.botaologout{
+    margin-top: 5px;
+    padding-right: 0px;
+    margin-bottom: 5px
+}
+
+
+.rowheader{
+    margin-top: 10px;
+    font-weight: bold;
+}
